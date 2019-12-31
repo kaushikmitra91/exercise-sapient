@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Characters from './components/characters';
 import './App.css';
 import Pagination from 'react-bootstrap/Pagination'
-import PageItem from 'react-bootstrap/PageItem'
 
 class App extends Component {
   state = {
@@ -32,7 +31,6 @@ class App extends Component {
     fetch(this.createApiUrl())
       .then(res => res.json())
       .then((data) => {
-        console.log(data)
         this.totalPages = data.info.pages;
         this.setState({ searchResult: data.results, rickMortyCharacters: data.results, paginationList: this.createPagination(data.info.pages) });
       })
